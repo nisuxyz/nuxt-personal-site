@@ -1,0 +1,42 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "pruvious dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@nuxt/icon": "1.10.3",
+    "nuxt": "~3.15.4",
+    "pruvious": "^3.15.1",
+    "pug": "^3.0.3",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "argon2",
+      "cpu-features",
+      "esbuild",
+      "sharp",
+      "sqlite3",
+      "ssh2",
+      "vue-demi"
+    ]
+  },
+  "devDependencies": {
+    "@iconify-json/line-md": "^1.2.5",
+    "@nuxtjs/color-mode": "^3.5.2",
+    "@nuxtjs/google-fonts": "^3.2.0",
+    "@nuxtjs/tailwindcss": "^6.13.1",
+    "sass-embedded": "^1.85.0"
+  },
+  "trustedDependencies": [
+    "@parcel/watcher"
+  ]
+}
