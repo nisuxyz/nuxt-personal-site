@@ -5,8 +5,7 @@
     Container
       div(class="max-w-content")
         BackButton(:to="projectLandingPage") project
-        h1(class="mt-3 text-post-title")
-          {{ page?.fields.headline || page?.title }}
+        h1(class="mt-3 text-post-title") {{ page?.fields.headline || page?.title }}
         WrittenOn(:author="page?.fields.author" :publishDate="page?.publishDate" class="mt-2 text-sm")
 
     slot
