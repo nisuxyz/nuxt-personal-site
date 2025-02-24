@@ -1,11 +1,11 @@
 <template>
-  <Container class="content-block">
+  <Container class="content-block" :class="{ 'text-center w-full': centered }">
     <PruviousHTML :html="text" class="prose" />
   </Container>
 </template>
 
 <script lang="ts" setup>
-import { defineBlock, editorField } from "#pruvious";
+import { defineBlock, editorField, checkboxField } from "#pruvious";
 
 defineBlock({
   icon: "Pencil",
@@ -24,6 +24,10 @@ defineProps({
       "link",
       "bulletList",
     ],
+  }),
+  centered: checkboxField({
+    label: "Centered",
+    default: false,
   }),
 });
 </script>

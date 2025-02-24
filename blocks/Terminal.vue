@@ -16,10 +16,9 @@
 
 <style lang="scss">
 .terminal {
-  @apply bg-stone-800;
+  @apply bg-stone-800 text-xs;
   color: #fff;
   font-family: "Fira Code", monospace;
-  font-size: 1.5rem;
   line-height: 1.5;
   padding: 1rem;
   border-radius: 0.5rem;

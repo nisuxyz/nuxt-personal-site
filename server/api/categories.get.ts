@@ -4,6 +4,9 @@ import { isPositiveInteger } from "~/.pruvious";
 export default defineEventHandler(async (event) => {
   const qs = getQuery(event);
   const page = qs.page ? Number(qs.page) : 1;
+  const withPosts = !!qs.withPosts;
+
+  console.log({ withPosts, qs });
 
   if (!isPositiveInteger(page)) {
     setResponseStatus(event, 400);
@@ -22,7 +25,16 @@ export default defineEventHandler(async (event) => {
     records: await Promise.all(
       result.records.map(async (category) => ({
         ...category,
-        path: await resolvePagePath(category.path, "posts"),
+        path: await resolvePagePath(category.path, "categories"),
+        posts: withPosts
+          ? await query("posts")
+              .selectAll()
+              .where("category", category.id)
+              .order("publishDate", "desc")
+              .limit(3)
+              .populate()
+              .get()
+          : undefined,
       })),
     ),
   };

@@ -1,14 +1,17 @@
 <template>
-  <Container class="content-block">
+  <Container
+    class="content-block"
+    :class="{ 'grid place-items-center w-full': centered }"
+  >
     <PruviousPicture
       :image="image"
-      class="max-w-content block h-auto w-full overflow-hidden rounded-md"
+      class="max-w-content block h-auto overflow-hidden rounded-md"
     />
   </Container>
 </template>
 
 <script lang="ts" setup>
-import { defineBlock, imageField } from "#pruvious";
+import { defineBlock, imageField, checkboxField } from "#pruvious";
 
 defineBlock({
   icon: "Photo",
@@ -24,6 +27,10 @@ defineProps({
       { format: "webp", width: 1440 },
       { format: "jpeg", width: 1440 },
     ],
+  }),
+  centered: checkboxField({
+    label: "Centered",
+    default: false,
   }),
 });
 </script>

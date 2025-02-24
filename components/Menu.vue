@@ -1,7 +1,7 @@
 <template>
   <nav
     v-if="menu.length"
-    class="relative tp:fixed tp:inset-0 tp:z-20 tp:flex tp:overflow-y-auto tp:bg-white/75 tp:backdrop-blur tp:backdrop-filter tp:transition-all tp:duration-300 tp:dark:bg-heading/80"
+    class="relative tp:fixed tp:inset-0 tp:z-20 tp:flex tp:overflow-y-auto tp:bg-white/75 tp:backdrop-blur tp:backdrop-filter tp:transition-all tp:duration-300 tp:dark:bg-gray-600/80"
     :class="{ 'tp:invisible tp:opacity-0': !mobileMenuVisible }"
   >
     <!-- Note: Add the spacing { 15: '3.75rem' } to tailwind.config.js -->
@@ -13,7 +13,7 @@
         <NuxtLink
           :to="link"
           @mouseenter="updateDotPosition(i)"
-          class="text-sm font-bold text-heading transition dark:text-white"
+          class="text-sm font-heading font-bold text-heading transition dark:text-white"
           :class="{
             'tp:underline tp:decoration-2 tp:underline-offset-4':
               link === route.path,
@@ -35,6 +35,7 @@
 <script lang="ts" setup>
 import { getCollectionData } from "#pruvious/client";
 import { useEventListener } from "@vueuse/core";
+import { useMobileMenuVisible } from "../composables/mobile-menu";
 
 // Fetch menu data from the Settings collection
 const { menu } = await getCollectionData("settings");
