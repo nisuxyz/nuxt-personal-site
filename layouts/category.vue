@@ -4,7 +4,7 @@ Header(class="mt-12")
 div(class="my-23 space-y-23 border-b pb-23 dark:border-white/10")
   Container
     div(class="max-w-content")
-      BackButton(:to="categoryLandingPage") Category
+      BackButton(:to="categoryLandingPage") categories
       h1(class="mt-3 text-post-title") {{ page?.fields.name || page?.title }}
 
   slot

@@ -11,7 +11,15 @@
       } of data?.records"
       :key="path"
     >
-      <div class="flex items-center gap-8 tp:flex-col">
+      <div v-if="terminal">
+        <Terminal
+          host="itsnisu.xyz"
+          description="posts"
+          :commands="commands"
+          inCode="true"
+        />
+      </div>
+      <div v-if="!terminal" class="flex items-center gap-8 tp:flex-col">
         <PruviousPicture
           :image="sharingImage"
           :imgAttrs="{ class: 'w-95 h-auto shrink-0 rounded-md tp:w-full' }"
@@ -53,12 +61,26 @@
 <script lang="ts" setup>
 import {
   defineBlock,
+  checkboxField,
+  textField,
   type PaginateResult,
   type PopulatedFieldType,
 } from "#pruvious";
+import Terminal from "./Terminal.vue";
 
 defineBlock({
   icon: "List",
+});
+
+const props = defineProps({
+  terminal: checkboxField({
+    label: "Terminal",
+    default: false,
+  }),
+  directory: textField({
+    label: "Terminal directory",
+    default: "",
+  }),
 });
 
 const route = useRoute();
@@ -77,6 +99,10 @@ const { data } = await useFetch<
     >
   >
 >("/api/posts", { query: { page } });
+
+const commands = computed(() => [
+  { directory: props.directory, command: "ls", result: data.value?.records },
+]);
 
 if (!data.value?.records.length && (page.value !== 1 || data.value?.total)) {
   if (import.meta.server) {

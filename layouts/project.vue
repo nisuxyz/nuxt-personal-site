@@ -4,7 +4,7 @@
   div(class="my-23 space-y-23 border-b pb-23 dark:border-white/10")
     Container
       div(class="max-w-content")
-        BackButton(:to="projectLandingPage") Project
+        BackButton(:to="projectLandingPage") project
         h1(class="mt-3 text-post-title")
           {{ page?.fields.headline || page?.title }}
         WrittenOn(:author="page?.fields.author" :publishDate="page?.publishDate" class="mt-2 text-sm")

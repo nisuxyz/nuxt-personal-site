@@ -31,4 +31,8 @@ export default defineNuxtConfig({
         "_WpOOEJFkkjPhXvGkyrvRXcFA4ttGL9atANv6H6CVe6FCecOa3r3NZKZtkEaZqu8",
     },
   },
+
+  nitro: {
+    preset: "vercel",
+  },
 });

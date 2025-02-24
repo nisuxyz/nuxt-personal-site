@@ -1,22 +1,26 @@
 <template lang="pug">
-  Container
-    div.terminal
-      div.terminal__header
+  Container(:class="{ '!p-0': inCode }")
+    .terminal
+      .terminal__header
         span.terminal__header__description {{ description ? `// ${description}`: '' }}
-      div.terminal__body.flex.flex-col
+      .terminal__body.flex.flex-col
         div(v-for="command in commands")
-          div.terminal__body__prompt
+          .terminal__body__prompt
             span.terminal__body__prompt__path {{ command.directory }} »
             span.terminal__body__commands__command__name {{ ' ' + command.command }}
-          div.terminal__body__commands
-              div.terminal__body__commands__command
-                code.terminal__body__commands__command__result(v-html="command.result")
-      div.terminal__footer.underline
+          .terminal__body__commands
+              .terminal__body__commands__command
+                code.terminal__body__commands__command__result(v-if="!inCode", v-html="command.result")
+                .terminal__body__commands__command__result(v-if="inCode", v-for="project in command.result")
+                  code
+                    NuxtLink(:to="project.path" class="underline") 📄 {{ project.headline }}.html
+
+      .terminal__footer.underline
 </template>
 
 <style lang="scss">
 .terminal {
-  @apply bg-stone-800 text-xs;
+  @apply bg-stone-800 text-xs md:text-lg;
   color: #fff;
   font-family: "Fira Code", monospace;
   line-height: 1.5;
@@ -108,6 +112,10 @@ const props = defineProps({
       result: textAreaSubfield({ description: "command result" }),
     },
   }),
+  inCode: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const { host, commands = [] } = props;

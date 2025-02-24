@@ -18,6 +18,7 @@
             'tp:underline tp:decoration-2 tp:underline-offset-4':
               link === route.path,
           }"
+          @click="toggleMobileMenu"
         >
           {{ label }}
         </NuxtLink>
@@ -34,13 +35,14 @@
 
 <script lang="ts" setup>
 import { getCollectionData } from "#pruvious/client";
-import { useEventListener } from "@vueuse/core";
+import { useEventListener, useScrollLock } from "@vueuse/core";
 import { useMobileMenuVisible } from "../composables/mobile-menu";
 
 // Fetch menu data from the Settings collection
 const { menu } = await getCollectionData("settings");
 
 const mobileMenuVisible = useMobileMenuVisible();
+const isLocked = useScrollLock(document?.body);
 const menuItemEls = ref<HTMLElement[]>([]);
 const dotPosition = ref<number | null>(null);
 const route = useRoute();
@@ -59,5 +61,11 @@ function updateDotPosition(index?: number) {
     menuItemEls.value[index ?? activeMenuIndex].offsetLeft;
     dotPosition.value = menuItemEls.value[index ?? activeMenuIndex].offsetLeft;
   }
+}
+
+function toggleMobileMenu() {
+  mobileMenuVisible.value = !mobileMenuVisible.value;
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  isLocked.value = mobileMenuVisible.value;
 }
 </script>

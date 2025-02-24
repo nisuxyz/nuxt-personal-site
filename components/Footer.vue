@@ -2,7 +2,7 @@
   <Container>
     <hr class="mb-16" />
     <p class="w-full text-2xl font-heading font-bold text-center mb-16">
-      I'm looking for a job - hiring or know someone who is?
+      I'm open for work - hiring, or know someone who is?
       <a class="underline" href="mailto:nisarg.joshi.95@gmail.com"
         >Let's chat!</a
       >
