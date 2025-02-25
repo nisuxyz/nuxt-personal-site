@@ -19,7 +19,7 @@ import { defineLayout } from "#pruvious";
 import { getCollectionData, usePage } from "#pruvious/client";
 
 defineLayout({
-  allowedBlocks: ["Image", "Prose"],
+  allowedBlocks: ["Image", "Prose", "SkillGrid"],
 });
 
 const page = unref(usePage());

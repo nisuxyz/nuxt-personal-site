@@ -24,13 +24,6 @@ export default defineCollection(
           description: "The name of the project",
         },
       },
-      slug: {
-        type: "text",
-        options: {
-          label: "Slug",
-          description: "The URL slug of the project",
-        },
-      },
       title: {
         type: "text",
         options: {
