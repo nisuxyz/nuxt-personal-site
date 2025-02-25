@@ -37,6 +37,12 @@
     "sass-embedded": "^1.85.0"
   },
   "trustedDependencies": [
-    "@parcel/watcher"
+    "@parcel/watcher",
+    "argon2",
+    "esbuild",
+    "sharp",
+    "sqlite3",
+    "ssh2",
+    "vue-demi"
   ]
 }
