@@ -13,7 +13,6 @@
     "@nuxt/icon": "1.10.3",
     "nuxt": "~3.15.4",
     "pruvious": "^3.15.1",
-    "pug": "^3.0.3",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
   },
@@ -30,6 +29,7 @@
     ]
   },
   "devDependencies": {
+    "pug": "^3.0.3",
     "@iconify-json/line-md": "^1.2.5",
     "@nuxtjs/color-mode": "^3.5.2",
     "@nuxtjs/google-fonts": "^3.2.0",
