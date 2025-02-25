@@ -50,7 +50,9 @@ const route = useRoute();
 let activeMenuIndex = 0;
 
 onMounted(() => {
-  activeMenuIndex = menu.findIndex(({ link }) => link === route.path);
+  activeMenuIndex = menu.findIndex(
+    ({ link }) => link === route.path || route.path.startsWith(`${link}/`),
+  );
   updateDotPosition();
 });
 

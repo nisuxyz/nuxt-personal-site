@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Container from "./Container.vue";
-// import Logo from './Logo.vue'
+import Logo from "./Logo.vue";
 import Menu from "./Menu.vue";
 import DarkModeSwitch from "./DarkModeSwitch.vue";
 import { useScrollLock } from "@vueuse/core";
@@ -18,10 +18,10 @@ function toggleMobileMenu() {
 <template>
   <Container>
     <header class="flex items-center gap-6">
-      <!-- <Logo /> -->
-      <a href="/" class="font-heading font-extrabold"
+      <Logo />
+      <!-- <a href="/" class="font-heading font-extrabold"
         >🪴 nisu's digital garden 🪴</a
-      >
+      > -->
       <Menu class="ml-auto" />
       <DarkModeSwitch class="ml-8" />
 
