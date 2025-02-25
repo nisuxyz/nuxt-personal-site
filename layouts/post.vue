@@ -6,6 +6,10 @@
       <div class="max-w-content">
         <BackButton :to="blogLandingPage">blog</BackButton>
 
+        <h1 class="mt-3 text-post-title">
+          {{ page?.fields.headline || page?.title }}
+        </h1>
+
         <div class="mt-3 flex gap-2 text-sm text-gray-500 dark:text-gray-400">
           <span v-if="page?.fields.category">
             category:
@@ -16,18 +20,15 @@
             >
           </span>
           <span v-if="page?.fields.project">
-            • project:
+            | project:
             <NuxtLink
-              :to="`/projects/${page.fields.project.slug}`"
-              class="font-medium text-gray-900 hover:text-gray-700 dark:text-white dark:hover:text-gray-300"
-              >{{ page.fields.project.title }}</NuxtLink
+              :to="`/projects${page.fields.project.path}`"
+              class="font-medium underline text-gray-900 hover:text-gray-700 dark:text-white dark:hover:text-gray-300"
+              >{{ page.fields.project.name }}</NuxtLink
             >
           </span>
         </div>
 
-        <h1 class="mt-3 text-post-title">
-          {{ page?.fields.headline || page?.title }}
-        </h1>
         <WrittenOn
           :author="page?.fields.author"
           :publishDate="page?.publishDate"
@@ -52,6 +53,8 @@ defineLayout({
 });
 
 const page = unref(usePage());
+
+// console.log({ project: page?.fields.project });
 const { blogLandingPage } = await getCollectionData("settings");
 </script>
 

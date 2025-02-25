@@ -13,7 +13,7 @@ export default defineEventHandler(async (event) => {
     return `The 'page' query parameter must be a positive integer`;
   }
 
-  const result = await query("categories")
+  const result = await query("projects")
     .selectAll()
     .where("public", true)
     .order("publishDate", "desc")
@@ -23,17 +23,16 @@ export default defineEventHandler(async (event) => {
   return {
     ...result,
     records: await Promise.all(
-      result.records.map(async (category) => ({
-        ...category,
-        path: await resolvePagePath(category.path, "categories"),
+      result.records.map(async (project) => ({
+        ...project,
+        path: await resolvePagePath(project.path, "projects"),
         posts: withPosts
           ? await query("posts")
               .selectAll()
-              .where("category", category.id)
+              .where("project", project.id)
               .order("publishDate", "desc")
               .limit(3)
               .populate()
-              .get()
           : undefined,
       })),
     ),

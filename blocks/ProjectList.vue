@@ -1,10 +1,10 @@
 <template lang="pug">
 Container.space-y-23
-  div(v-for='{headline, author, publishDate, path, posts} of data?.records' :key='path')
+  div(v-for='{name, publishDate, path, description} of data?.records' :key='path')
     .flex.items-center.gap-8(class='tp:flex-col')
       .flex-1
         h2
-          NuxtLink(:to='path') {{ headline }}
+          NuxtLink(:to='path') {{ name }}
           WrittenOn(:author='author' :publishDate='publishDate' class='mt-2 text-vs')
           .prose.mt-4(v-if='description')
             p {{ description }}
@@ -51,7 +51,7 @@ const { data } = await useFetch<
       | "sharingImage"
     >
   >
->("/api/posts", {
+>("/api/projects", {
   query: { page, withPosts: true },
 });
 

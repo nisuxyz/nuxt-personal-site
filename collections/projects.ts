@@ -14,6 +14,7 @@ export default defineCollection(
       "title",
       "author",
       "description",
+      "link",
     ],
     additionalFields: {
       name: {
@@ -50,6 +51,13 @@ export default defineCollection(
           collection: "users",
           fields: ["firstName"],
           populate: true,
+        },
+      },
+      link: {
+        type: "text",
+        options: {
+          label: "Link",
+          description: "The link to the project",
         },
       },
     },

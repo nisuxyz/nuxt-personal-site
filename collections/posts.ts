@@ -21,6 +21,7 @@ export default defineCollection(
         type: "record",
         options: {
           collection: "projects",
+          fields: ["name", "path"],
           populate: true,
         },
       },

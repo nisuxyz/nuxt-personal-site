@@ -34,7 +34,7 @@ const { data } = await useFetch<
   query: { page },
 });
 
-console.log({ data });
+// console.log({ data });
 
 if (!data.value?.records.length && (page.value !== 1 || data.value?.total)) {
   if (import.meta.server) {
