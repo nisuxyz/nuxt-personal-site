@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: itsnisuxyz
+    runtime: node
+    branch: trunk
+    startCommand: bun .output/server/index.mjs
+    buildCommand: bunx nypm install && bun run build
+    envVars:
+      - key: NITRO_PRESET
+        value: render_com
