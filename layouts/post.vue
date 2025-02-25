@@ -1,7 +1,7 @@
 <template>
   <Header class="mt-12" />
 
-  <div class="my-23 space-y-23 border-b pb-23 dark:border-white/10">
+  <div class="my-23 space-y-23 pb-23">
     <Container>
       <div class="max-w-content">
         <BackButton :to="blogLandingPage">blog</BackButton>

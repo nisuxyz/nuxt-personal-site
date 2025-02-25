@@ -4,7 +4,7 @@
 
 body {
   /* @apply text-copy; */
-  @apply dark:bg-black dark:text-white;
+  @apply dark:bg-stone-900 dark:text-white;
 }
 
 h1,
