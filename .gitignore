@@ -33,3 +33,6 @@ logs
 pruvious.db
 pruvious.db-journal
 persist
+
+# Sentry Config File
+.env.sentry-build-plugin

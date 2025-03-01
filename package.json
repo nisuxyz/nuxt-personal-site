@@ -12,6 +12,7 @@
   "dependencies": {
     "@headlessui/vue": "^1.7.23",
     "@nuxt/icon": "1.10.3",
+    "@sentry/nuxt": "^9",
     "nuxt": "~3.15.4",
     "pruvious": "^3.15.1",
     "vue": "^3.5.13",
@@ -39,11 +40,15 @@
   },
   "trustedDependencies": [
     "@parcel/watcher",
+    "@sentry/cli",
     "argon2",
     "esbuild",
     "sharp",
     "sqlite3",
     "ssh2",
     "vue-demi"
-  ]
+  ],
+  "overrides": {
+    "@vercel/nft": "^0.27.4"
+  }
 }

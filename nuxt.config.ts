@@ -2,7 +2,9 @@
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
+
   modules: [
+    "@sentry/nuxt/module",
     "@nuxtjs/color-mode",
     "@nuxtjs/google-fonts",
     "@nuxtjs/tailwindcss",
@@ -25,6 +27,9 @@ export default defineNuxtConfig({
     },
   },
 
+  // nitro: {
+  //   preset: "vercel",
+  // },
   pruvious: {
     database: "sqlite:./persist/pruvious.db",
     uploads: {
@@ -39,7 +44,14 @@ export default defineNuxtConfig({
     },
   },
 
-  // nitro: {
-  //   preset: "vercel",
-  // },
+  sentry: {
+    sourceMapsUploadOptions: {
+      org: "nisu-joshi",
+      project: "garden",
+    },
+  },
+
+  sourcemap: {
+    client: "hidden",
+  },
 });

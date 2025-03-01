@@ -3,7 +3,7 @@ services:
     name: itsnisuxyz
     runtime: node
     branch: trunk
-    startCommand: bun .output/server/index.mjs
+    startCommand: bun --import ./.output/server/sentry.server.config.mjs .output/server/index.mjs
     buildCommand: bun install && bun run build
     envVars:
       - key: NITRO_PRESET
